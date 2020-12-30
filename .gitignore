@@ -1,0 +1,11 @@
+# ignore build harness
+*build-harness
+
+# ignore env vars
+.vars
+
+# ignore .volumes dir
+.volumes
+
+# ignore src dir
+src/*

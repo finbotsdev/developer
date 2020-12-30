@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  marketstore:
+    build:
+      context: ./src/marketstore
+    container_name: marketstore.local
+    image: alpacamarkets/marketstore:latest
+    ports:
+      - "5993:5993"
+      - "5995:5995"
+    restart: always
+    networks:
+      finbots:
+    volumes:
+      - ./mkts.yml:/etc/mkts.yml
+      - ./.volumes/marketstore:/data
+
+networks:
+  finbots:
+    name: finbots_dev
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
