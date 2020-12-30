@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: finbotsdev-
+
+build:
+  artifacts:
+    - image: alpacamarkets/marketstore
+      context: ./src/marketstore/
+
+deploy:
+  helm:
+    releases:
+      - name: marketstore
+        chartPath: ./src/marketstore/helm-chart
