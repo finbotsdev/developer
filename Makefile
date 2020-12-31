@@ -4,6 +4,6 @@
 
 ## install project requirements
 bootstrap: init .vars brew
-	./setup
+	./bin/setup
 	./bin/bootstrap
 .PHONY: bootstrap
