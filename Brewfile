@@ -7,6 +7,10 @@ cask "docker"
 # https://k9scli.io/
 brew "k9s"
 
+# Tool to move from `docker-compose` to Kubernetes
+# https://kompose.io/
+brew "kompose"
+
 # Run a Kubernetes cluster locally
 # https://minikube.sigs.k8s.io/
 brew "minikube"
