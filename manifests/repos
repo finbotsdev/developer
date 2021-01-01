@@ -1,1 +1,2 @@
+git@github.com:localstack/localstack.git localstack/localstack
 git@github.com:finbotsdev/marketstore.git finbotsdev/marketstore
