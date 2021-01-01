@@ -1,5 +1,7 @@
 # minikube
 
+Minikube can run on Windows and MacOS, because it relies on virtualization (e.g. Virtualbox) to deploy a kubernetes cluster in a Linux VM. You can also run minikube directly on linux with or without virtualization. It also has some developer-friendly features, like [add-ons](https://github.com/kubernetes/minikube/blob/master/docs/addons.md).
+
 see [minikube quickstart](https://minikube.sigs.k8s.io/docs/start/) for more information.
 
 ## Create a minikube cluster
