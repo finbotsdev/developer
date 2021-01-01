@@ -1,6 +1,9 @@
 # ignore build harness
 *build-harness
 
+# ignore brewfile lock
+Brewfile.lock*
+
 # ignore env vars
 .vars
 
