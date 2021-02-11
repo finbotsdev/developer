@@ -4,8 +4,8 @@ see [skaffold quickstart](https://skaffold.dev/docs/quickstart/) for more inform
 
 ## skaffold dev: continuous build & deploy on code changes
 
-Run `skaffold dev` to build and deploy your app continuously
+execute `skaffold dev` to build and deploy your app continuously
 
 ## skaffold run: single build and deploy
 
-Use `skaffold run` to build and deploy your app once, similar to a CI/CD pipeline
+execute `skaffold run` to build and deploy your app once, similar to a CI/CD pipeline
