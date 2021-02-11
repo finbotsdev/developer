@@ -37,13 +37,13 @@ export BANNER='
 
 # Colors
 ESC_SEQ="\x1b["
-C_RESET="${ESC_SEQ}39;49;00m"
-C_RED="${ESC_SEQ}31;01m"
-C_GREEN="${ESC_SEQ}32;01m"
-C_YELLOW="${ESC_SEQ}33;01m"
 C_BLUE="${ESC_SEQ}34;01m"
-C_MAGENTA="${ESC_SEQ}35;01m"
 C_CYAN="${ESC_SEQ}36;01m"
+C_GREEN="${ESC_SEQ}32;01m"
+C_MAGENTA="${ESC_SEQ}35;01m"
+C_RED="${ESC_SEQ}31;01m"
+C_RESET="${ESC_SEQ}39;49;00m"
+C_YELLOW="${ESC_SEQ}33;01m"
 
 ################################################################################
 # TUI Functions
