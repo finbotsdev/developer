@@ -1,17 +1,7 @@
 # finbots-dev
 
-## configure
+## Quick Start
 
-- [ ] initialize build harness using command `make init`
-- [ ] copy project vars.example file `make vars`
-- [ ] ensure software dependencies are installed `make brew`
-- [ ] execute all of the commands above at once using default configuration `make`
-
-## clone dependent service source code repositories
-
-```sh
-  make
-```
-
-- iterate the repo-manifest file and call git clone or update for each entry
-- iterate the repo-manifest file and initialize each repo found
+- `git clone https://github.com/finbotsdev/developer` to copy the repository
+- `make init` to initialize the build-harness
+- `make bootstrap` to load project dependencies
