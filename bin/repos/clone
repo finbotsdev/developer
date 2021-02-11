@@ -3,8 +3,9 @@
 
 # find script location
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# shellcheck source=${DIR}/../lib/bashopts.sh
-source "${DIR}/../lib/bashopts.sh"
+
+# shellcheck source=${DIR}/../../lib/bashopts.sh
+source "${DIR}/../../lib/bashopts.sh"
 
 banner
 
@@ -17,8 +18,7 @@ banner
 ###############################################################################
 help() {
    # Display Help
-   echo "read .repo-manifest file, iterate list of repos, authorize direnv and execute"
-   echo "the default make target for each."
+   echo "read .repo-manifest file, iterate list of repos, clone or update each."
    echo
    echo "Syntax: scriptTemplate [-h|v]"
    echo "options:"
@@ -30,7 +30,6 @@ help() {
 ###############################################################################
 # Process the input options. Add options as needed.
 ###############################################################################
-# Get the options
 while getopts ":hv" option; do
    case $option in
       h) # display Help
@@ -38,12 +37,11 @@ while getopts ":hv" option; do
         exit
         ;;
       v) # set verbose flag
-        DEBUG
+        echo "Enabling debug mode" && set -x
         ;;
 
      \?) # invalid option
-        echo "Error: Invalid option"
-        exit
+        die "Error: Invalid option"
         ;;
    esac
 done
@@ -51,21 +49,13 @@ done
 ###############################################################################
 # Main function
 ###############################################################################
-main() {
-  while IFS= read -r repo
-  do
-    # org=$(echo "$repo" | cut -d/ -f1)
-    repo=$(echo "$repo" | cut -d/ -f2)
-    echo ""
-    echo "$repo"
-    echo "####################################################################"
-    (
-      cd "${REPO_PATH}/$repo" || exit
-      [[ -f .envrc ]] && direnv allow
-      [[ -f Makefile ]] && make
-      : # true
-    )
-  done <<< "$(cat "${DIR}/../.repo-manifest")"
-}
+while IFS= read -r line
+do
+  org=$(echo "$line" | cut -d/ -f1)
+  [[ -z "$org" ]] && die "malformed repo manifest entry"
 
-main "$@"
+  repo=$(echo "$line" | cut -d/ -f2)
+  [[ -z "$repo" ]] && die "malformed repo manifest entry"
+
+  git_clone_or_update "git@github.com:$org/$repo.git" "${REPO_PATH}/$repo"
+done <<< "$(cat "${DIR}/../../.repo-manifest")"
