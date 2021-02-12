@@ -15,6 +15,7 @@ deploy:
     releases:
       - name: marketstore
         chartPath: ./src/marketstore/helm-chart
+
   kubectl:
     manifests:
       - ./src/fb-persists/kubernetes.yaml
