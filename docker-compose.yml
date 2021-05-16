@@ -36,6 +36,38 @@ services:
       - ./mkts.yml:/etc/mkts.yml
       - ./.volumes/marketstore:/data
 
+  postgres:
+    environment:
+      - APP_DB_USER
+      - APP_DB_PASS
+      - APP_DB_NAME
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - PGDATA
+    image: postgres:12.3-alpine
+    networks:
+      finbots:
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.volumes/postgresql:${PGDATA}
+      - ./db:/docker-entrypoint-initdb.d/
+
+  pgadmin:
+    depends_on:
+      - postgres
+    environment:
+      - PGADMIN_DEFAULT_EMAIL
+      - PGADMIN_DEFAULT_PASSWORD
+      - PGADMIN_CONFIG_SERVER_MODE
+    image: dpage/pgadmin4
+    networks:
+      finbots:
+    ports:
+      - "5050:80"
+    volumes:
+      - ./.volumes/pgadmin:/root/.pgadmin
+
 networks:
   finbots:
     name: finbots_dev

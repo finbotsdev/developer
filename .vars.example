@@ -6,3 +6,15 @@ export PATH=./bin:./build-harness/bin:./build-harness/vendor:$PATH
 # the path specified by REPO_PATH is there we will clone the
 # source repositories specified in .repo-manifest
 export REPO_PATH=./src
+
+export APP_DB_USER=docker
+export APP_DB_PASS=docker
+export APP_DB_NAME=docker
+
+export POSTGRES_USER=${POSTGRES_USER:-postgres}
+export POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+export PGDATA=/data/postgres
+
+export PGADMIN_DEFAULT_EMAIL=admin@admin.com
+export PGADMIN_DEFAULT_PASSWORD=$POSTGRES_PASSWORD
+export PGADMIN_CONFIG_SERVER_MODE="False"
