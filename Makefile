@@ -3,7 +3,5 @@
 .DEFAULT_GOAL := bootstrap
 
 ## install project requirements
-bootstrap: init .vars brew
-	./bin/repos/clone
-	./bin/repos/init
+bootstrap: init .vars manifest/pull manifest/make
 .PHONY: bootstrap

@@ -1,3 +1,6 @@
+# ignore direnv
+.direnv
+
 # ignore build harness
 *build-harness
 
@@ -10,5 +13,5 @@ Brewfile.lock*
 # ignore .volumes dir
 .volumes
 
-# ignore src dir
-src/*
+# ignore src directory
+src
