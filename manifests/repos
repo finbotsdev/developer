@@ -1,2 +1,3 @@
 git@github.com:finbotsdev/fb_persists.git finbotsdev/fb_persists
 git@github.com:finbotsdev/marketstore.git finbotsdev/marketstore
+git@github.com:localstack/localstack.git localstack/localstack
