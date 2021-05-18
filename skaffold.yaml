@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta10
+apiVersion: skaffold/v2beta16
 kind: Config
 metadata:
   name: finbotsdev-
@@ -6,16 +6,18 @@ metadata:
 build:
   artifacts:
     - image: alpacamarkets/marketstore
-      context: ./src/marketstore/
+      context: ./src/finbotsdev/marketstore/
     - image: fb-persists
-      context: ./src/fb-persists/
+      context: ./src/finbotsdev/fb_persists/
 
 deploy:
   helm:
     releases:
-      - name: marketstore
-        chartPath: ./src/marketstore/helm-chart
+      - name: postgres
+        remoteChart: bitnami/postgresql
+      - name: localstack
+        remoteChart: localstack-charts/localstack
 
   kubectl:
     manifests:
-      - ./src/fb-persists/kubernetes.yaml
+      - ./src/finbotsdev/fb_persists/kubernetes.yaml

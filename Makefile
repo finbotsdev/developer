@@ -3,8 +3,15 @@
 .DEFAULT_GOAL := bootstrap
 
 ## install project requirements
-bootstrap: init .vars manifest/pull manifest/make
+bootstrap: init .vars \
+	manifest/pull \
+	manifest/make \
+	helm
 .PHONY: bootstrap
+
+helm:
+	helm repo add bitnami https://charts.bitnami.com/bitnami
+	helm repo add localstack-charts https://localstack.github.io/helm-charts
 
 minikube:
 	minikube start
