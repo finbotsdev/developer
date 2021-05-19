@@ -14,9 +14,9 @@ deploy:
   # https://skaffold.dev/docs/pipeline-stages/deployers/helm/
   helm:
     releases:
-      - name: postgres
+      - name: db
         remoteChart: bitnami/postgresql
-      - name: localstack
+      - name: aws
         remoteChart: localstack/localstack
 
   # https://skaffold.dev/docs/pipeline-stages/deployers/kubectl/
