@@ -18,6 +18,8 @@ deploy:
         remoteChart: bitnami/postgresql
       - name: aws
         remoteChart: localstack/localstack
+      - name: marketstore
+        chartPath: ./src/finbotsdev/marketstore/helm-chart
 
   # https://skaffold.dev/docs/pipeline-stages/deployers/kubectl/
   kubectl:
