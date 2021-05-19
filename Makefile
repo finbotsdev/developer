@@ -11,7 +11,7 @@ bootstrap: init .vars \
 
 helm:
 	helm repo add bitnami https://charts.bitnami.com/bitnami
-	helm repo add localstack-charts https://localstack.github.io/helm-charts
+	helm repo add localstack https://localstack.github.io/helm-charts
 
 minikube:
 	minikube start

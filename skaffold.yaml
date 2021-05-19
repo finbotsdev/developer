@@ -16,7 +16,7 @@ deploy:
       - name: postgres
         remoteChart: bitnami/postgresql
       - name: localstack
-        remoteChart: localstack-charts/localstack
+        remoteChart: localstack/localstack
 
   kubectl:
     manifests:
